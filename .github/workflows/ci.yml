@@ -45,6 +45,8 @@ jobs:
         with:
           commit_message: Apply formatting changes
           branch: ${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Lint files
         run: npm run lint
@@ -58,3 +60,5 @@ jobs:
         with:
           commit_message: Apply fixed lint issues
           branch: ${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
