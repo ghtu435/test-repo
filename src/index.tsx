@@ -29,7 +29,10 @@ class P5Wrapper extends React.Component<IP5WrapperProps, IP5WrapperState> {
     };
   }
 
-  static getDerivedStateFromProps(props: IP5WrapperProps, state: IP5WrapperState) {
+  static getDerivedStateFromProps(
+    props: IP5WrapperProps,
+    state: IP5WrapperState
+  ) {
     if (state.sketch !== props.sketch) {
       const { sketch } = props;
       const canvas = new p5(sketch, state.wrapper);
