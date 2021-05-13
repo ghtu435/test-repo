@@ -25,18 +25,15 @@ class P5Wrapper extends React.Component<IP5WrapperProps, IP5WrapperState> {
       ...props,
       canvas: null,
       // TODO: find a workaround since refs in state are bad practice
-      wrapper: this.wrapper
+      wrapper: this.wrapper,
     };
   }
 
-  static getDerivedStateFromProps(
-    props: IP5WrapperProps,
-    state: IP5WrapperState
-  ) {
+  static getDerivedStateFromProps(props: IP5WrapperProps, state: IP5WrapperState) {
     if (state.sketch !== props.sketch) {
       const { sketch } = props;
       const canvas = new p5(sketch, state.wrapper);
-      state.canvas.remove();
+      state.canvas.remove()
       return { ...state, sketch, canvas };
     }
 
@@ -71,10 +68,7 @@ class P5Wrapper extends React.Component<IP5WrapperProps, IP5WrapperState> {
 
   render() {
     return (
-      <div
-        {...this.state.attributes}
-        ref={(wrapper) => (this.wrapper = wrapper)}
-      >
+      <div {...this.state.attributes} ref={(wrapper) => (this.wrapper = wrapper)}>
         {this.props.children}
       </div>
     );
